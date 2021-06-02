@@ -1,0 +1,236 @@
+.ticketBox {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 19rem;
+  width: 39.8rem;
+  background: var(--gradient-button);
+  border-radius: 1rem;
+  border-image-slice: 1;
+  border-image-source: var(--gradient-started);
+  background-clip: padding-box;
+
+  @media (max-width: 1120px) {
+    height: 15rem;
+    width: 35rem;
+  }
+
+  @media (max-width: 900px) {
+    position: absolute;
+    top: 14rem;
+    left: -10rem;
+    right: 0;
+    bottom: 0;
+    transform: rotate(90deg);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 590px) {
+    top: 12rem;
+  }
+
+  .ticketLeftSideContainer {
+    margin: 0.5rem;
+    border-radius: 1rem;
+    background: rgba(18, 18, 20, 0.5);
+  }
+
+  .ticketLeftSide {
+    display: flex;
+    flex-direction: column;
+    height: 18rem;
+    padding: 1rem;
+
+    @media (max-width: 1120px) {
+      height: 14rem;
+    }
+    
+    img {
+      margin-bottom: auto;
+    }
+
+    p {
+      font-size: 1rem;
+      color: var(--light-gray);
+      line-height: 2rem;
+
+      @media (max-width: 1120px) {
+        font-size: 0.9rem;
+      }
+    }
+
+    span {
+      font-size: 1rem;
+      color: var(--light-gray);
+
+      @media (max-width: 1120px) {
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  .ticketRightSideContainer {
+    position: relative;
+    margin: 0.5rem;
+    border-radius: 1rem;
+    background: rgba(18, 18, 20, 0.5);
+    
+    &::before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 0.3rem;
+      background: url('/images/dotted.svg') no-repeat;
+      left: -15px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      opacity: 0.2;
+      background: url('/images/background.png') no-repeat var(--background);;
+      background-size: cover;
+      background-position: top;
+      border-radius: 1rem;
+    }
+  }
+
+  .ticketRightSide {
+    height: 18rem;
+    padding: 1.3rem;
+    display: grid;
+    grid-template-columns: 2fr .6fr .7fr;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas:  "nlwTogether binary binary"
+                          "infoUser infoUser infoUser"
+                          "ticketMission missionInfo missionInfo";
+
+    @media (max-width: 1120px) {
+      height: 14rem;
+    }
+
+    .nlwTogether {
+      grid-area: nlwTogether;
+      height: 2.5rem;
+      justify-self: start;
+
+      @media (max-width: 1120px) {
+        height: 2rem;
+      }
+    }
+
+    .binary {
+      grid-area: binary;
+      height: 5rem;
+      justify-self: end;
+
+      @media (max-width: 1120px) {
+        height: 3.5rem;
+      }
+    }
+
+    .infoUser {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      img {
+        height: 4.3rem;
+        width: 4.3rem;
+        margin-right: 1rem;
+
+        @media (max-width: 1120px) {
+          height: 3rem;
+          width: 3rem;
+        }
+      }
+
+      div {
+        p:first-child {
+          font-size: 1.3rem;
+          font-weight: 700;
+          line-height: 2rem;
+          color: var(--light-gray);
+
+          @media (max-width: 1120px) {
+            font-size: 1rem;
+          }
+        }
+
+        p:last-child {
+          font-size: 1rem;
+          color: var(--dark-gray);
+
+          @media (max-width: 1120px) {
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+
+    .ticketMission {
+      grid-area: ticketMission;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-top: 1rem;
+
+
+      img {
+        height: 4rem;
+        margin-right: 1rem;
+
+        @media (max-width: 1120px) {
+          height: 3rem;
+        }
+      }
+
+      div {
+        p {
+          font-size: 1.2rem;
+          color: var(--light-gray);
+          line-height: 1.2rem;
+
+          @media (max-width: 1120px) {
+            font-size: 1rem;
+          }
+        }
+  
+        strong {
+          font-size: 1.2rem;
+          font-weight: 700;
+          color: var(--blue);
+
+          @media (max-width: 1120px) {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+
+    .missionInfo {
+      grid-area: missionInfo;
+      display: flex;
+      align-items: center;
+      justify-self: end;
+      margin-top: 1rem;
+
+      p {
+        font-size: 1rem;
+        color: var(--dark-gray);
+
+        @media (max-width: 1120px) {
+          font-size: 0.9rem;
+        }
+      }
+
+      p:first-child {
+        margin-right: 1rem;
+      }
+    }
+  }
+}
